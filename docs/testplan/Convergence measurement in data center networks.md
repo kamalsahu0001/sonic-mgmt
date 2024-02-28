@@ -43,7 +43,7 @@
 In a data center environment using SONiC (Software for Open Networking in the Cloud), convergence refers to the process by which the network adapts to changes in topology, link states, trigger events or routing information. Achieving fast convergence is critical to ensure that the network can quickly recover from failures or topology changes without impacting services.
 
 ### Scope
-These tests are targeted on fully functioning SONiC chassis system. Will cover functional testing of PFC during congestion and oversubscription scenarios.
+These tests are targeted on fully functioning SONiC data center networks. Will cover route performance measurements for both IPv4 and IPv6 prefixes and also measure convergence for various triggers generated in data center networks.
 
 ### Overview
 In a Tier 2 (T2) data center network environment, route performance and convergence are critical factors that directly impact network availability, resiliency, and overall service delivery. Both unplanned and planned events can trigger changes in the network topology or routing information, necessitating rapid convergence to minimize service disruptions. Let's examine how route performance and convergence play a key role in handling various triggers:

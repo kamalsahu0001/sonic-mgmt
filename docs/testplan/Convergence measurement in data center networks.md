@@ -1,11 +1,10 @@
 # Convergence measurement in data center networks
 
-- [PFC testing during congestion and oversubscription](#pfc-testing-during-congestion-and-oversubscription)
   - [Objective](#objective)
     - [Scope](#scope)
     - [Overview](#overview)
   - [Unplanned Events](#unplanned-events)
-    - [Link Failures (Uplink/Downlink):](#link-failures-(uplink/downlink))
+    - [Link Failures (Uplink/Downlink):](#link-failures-uplinkdownlink)
     - [eBP Session Flaps:](#ebgp-session-flaps)
     - [Process Crash:](#process-crash)
     - [Linecard Ungraceful Restarts:](#linecard-ungraceful-restarts)

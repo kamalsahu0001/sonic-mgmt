@@ -104,7 +104,7 @@ Traffic will be sent from remaining tgen ports to the routes which are being adv
 
 Intially routes will not be advertised and while sending traffic, no packets will be received. <br/> 
 Advertise the routes and measure the time it takes to install the routes in its RIB(Routing Information Base) and then in its FIB(Forwarding Information Base) to forward the traffic. <br/> 
-Convergence time should be measured from the time, routes are advertised and when the traffic is receiving at full transmitting rate.<br/> 
+Convergence time should be measured from the instance routes are advertised and when the traffic is receiving at full transmitting rate.<br/> 
 Similarly, withdraw the routes and measure the time it takes to delete the routes from DUT asics. <br/> 
 In order to measure the time it takes to delete the routes from asics after routes withdraw, we have to consider the time when it starts withdrawing the routes and when the traffic receiving rate goes to 0%.<br/> 
 Differnet v4 and v6 prefix combinations will be tried for Route advertise/withdraw convergence numbers. (Ports can be connected to single asic same LC, different asic same LC, different asic different LCs.)<br/> 

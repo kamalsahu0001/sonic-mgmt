@@ -26,7 +26,7 @@
       - [Test Methodology](#test-methodology-1)
       - [Test Setup](#test-setup-1)
         - [Test case # 2.1: Measure the convergence time it takes to redirect the traffic to remaining T2 devices when the link between T1 and T2 goes down](#test-case--21)
-        - [Test case # 2.: Measure the convergence time it takes to load balance the traffic once the link between T1 and T2 comes back up](#test-case--22)
+        - [Test case # 2.2: Measure the convergence time it takes to load balance the traffic once the link between T1 and T2 comes back up](#test-case--22)
         - [Test case # 2.3: Measure the convergence time when one of the active member of portchannel goes down](#test-case--23)
         - [Test case # 2.4: Measure the convergence time when the portchannel goes down](#test-case--24)
         - [Test case # 2.5: Measure the convergence time when the portchannel comes back up](#test-case--25)

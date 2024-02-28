@@ -5,7 +5,7 @@
     - [Overview](#overview)
   - [Unplanned Events](#unplanned-events)
     - [Link Failures (Uplink/Downlink):](#link-failures-uplinkdownlink)
-    - [eBP Session Flaps:](#ebgp-session-flaps)
+    - [eBGP Session Flaps:](#ebgp-session-flaps)
     - [Process Crash:](#process-crash)
     - [Linecard Ungraceful Restarts:](#linecard-ungraceful-restarts)
     - [Supervisor Ungraceful Restart:](#supervisor-ungraceful-restart)

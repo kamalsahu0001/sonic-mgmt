@@ -88,8 +88,8 @@ Considering this design, triggers within a chassis could lead to route churn acr
 ### Route Performance Topology
 
 <p float="left">
-  <img src="Img/Route_Performance.png" width="500"  hspace="50"/>
-  <img src="Img/Route_Performance_multiple_sessions.png" width="525"/>
+  <img src="Img/Route_Performance.png" width="400"  hspace="50"/>
+  <img src="Img/Route_Performance_multiple_sessions.png" width="425"/>
 </p>
 
 

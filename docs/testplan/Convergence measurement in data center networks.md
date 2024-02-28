@@ -153,7 +153,7 @@ Same test can be expanded to multiple sessions on single port or if multiple tge
 ### Outbound Traffic Topology
 
 <p float="left">
-  <img src="Img/T2_Convergence_Outbound_Traffic.png" width="400"  hspace="350"/>
+  <img src="Img/T2_Convergence_Outbound_Traffic.png" width="300"  hspace="500"/>
 </p>
 
 ### Setup Configuration
@@ -184,11 +184,11 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 4. Same prefixes will be advertised from all the tgen ports connected to T1 and T2 devices.
 5. T1 device will learn the routes from all eBGP neighbors and uses ECMP to forward traffic. 
 
+### Test Case # 2.1
 <p float="left">
-  <img src="Img/T2_Convergence_Link_Down.png" width="400"  hspace="350"/>
+  <img src="Img/T2_Convergence_Link_Down.png" width="300"  hspace="500"/>
 </p>
 
-### Test Case # 2.1
 
 | **Test Name**  | **Measure the convergence time it takes to redirect the traffic to remaining T2 devices when the link between T1 and T2 goes down.**                         |
 | -------------- | :--------------------------------------- |
@@ -206,11 +206,11 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 | **Traffic**    | **Outbound**                             |
 | **Test Steps** | 1. Send traffic from server port(tgen) connected to T1 to the eBGP prefixes.<br/>2. Traffic will be equally distributed between the available paths.<br/>3. Cut down the link between T1 and T2 device and see that T1 quickly detects it and forwards the traffic to other available path.<br/>4. Measure the time it takes to converge the traffic to other available path without any loss.<br/>5. Generally there shouldn't be any impact on traffic as it is using other avialable paths to forward traffic. Once the new path is available, it will use that path also to forward the traffic. |
 
-<p float="left">
-  <img src="Img/T2_Convergence_PO_Member_Down.png" width="400"  hspace="350"/>
-</p>
-
 ### Test Case # 2.3
+
+<p float="left">
+  <img src="Img/T2_Convergence_PO_Member_Down.png" width="300"  hspace="500"/>
+</p>
 
 | **Test Name**  | **Measure the convergence time when one of the active member of portchannel goes down.**                         |
 | -------------- | :--------------------------------------- |
@@ -219,11 +219,11 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 | **Traffic**    | **Outbound**                             |
 | **Test Steps** | 1. Send traffic from server port(tgen) connected to T1 to the eBGP prefixes.<br/>2. Traffic will be equally distributed between the available paths.<br/>3. Cut down one of the active member(tgen port) of portchannel.<br/>4. Uplink linecard will update its PO active members.<br/>5. Downlink linecards will update the information as well (since egress resolution in VOQ chassis happens on LC receiving traffic).<br/>6. Minimal traffic impact might happen till step 5 is completed(Downlink linecards might keep hashing outbound traffic towards inactive PO member).<br/>7. Measure the time it takes to converge the traffic to other available path without any loss. |
 
-<p float="left">
-  <img src="Img/T2_Convergence_PO_Down.png" width="400"  hspace="350"/>
-</p>
-
 ### Test Case # 2.4
+
+<p float="left">
+  <img src="Img/T2_Convergence_PO_Down.png" width="300"  hspace="500"/>
+</p>
 
 | **Test Name**  | **Measure the convergence time when the portchannel goes down.**                         |
 | -------------- | :--------------------------------------- |
@@ -241,12 +241,11 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 | **Traffic**    | **Outbound**                             |
 | **Test Steps** | 1. Send traffic from server port(tgen) connected to T1 to the eBGP prefixes.<br/>2. Traffic will be equally distributed between the available paths.<br/>3. Bring the portchannel back up.<br/>4. Uplink linecard will from ebgp session and routes will be learned and ECMP paths will be updated.<br/>5. Above information will be propagated to downlink linecards as well.<br/>6. Measure the time it takes to converge the traffic to other available path without any loss.<br/>7. Generally there should not be any traffic impact as the downlink linecards keep forwarding traffic via the available ECMP paths. Once the new path is updated, it will use that path also to forward the traffic.|
 
+### Test Case # 2.6
 
 <p float="left">
-  <img src="Img/T2_Convergence_Uplink_LC_Down.png" width="400"  hspace="350"/>
+  <img src="Img/T2_Convergence_Uplink_LC_Down.png" width="300"  hspace="500"/>
 </p>
-
-### Test Case # 2.6
 
 | **Test Name**  | **Measure the convergence time when the uplink LC goes down.**                         |
 | -------------- | :--------------------------------------- |
@@ -255,12 +254,11 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 | **Traffic**    | **Outbound**                             |
 | **Test Steps** | 1. Send traffic from server port(tgen) connected to T1 to the eBGP prefixes.<br/>2. Traffic will be equally distributed between the available paths.<br/>3. Bring the uplink linecard down(Process down).<br/>4. iBGP holddown timer between uplink and downlink linecards will expire.<br/>5. Downlink linecard will delete/update the routes coming from the uplink LC.<br/>6. Downlink linecards will update it ASIC table and withdraw routes which are learned from uplink LC.<br/>7. T1 will redirect the traffic to other T2 devices.<br/>8. Measure the time it takes to converge the traffic to other available path without any loss. |
 
+### Test Case # 2.7
 
 <p float="left">
-  <img src="Img/T2_Convergence_Downlink_LC_Down.png" width="400"  hspace="350"/>
+  <img src="Img/T2_Convergence_Downlink_LC_Down.png" width="300"  hspace="500"/>
 </p>
-
-### Test Case # 2.7
 
 | **Test Name**  | **Measure the convergence time when the downlink LC goes down.**                         |
 | -------------- | :--------------------------------------- |
@@ -269,12 +267,11 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 | **Traffic**    | **Outbound**                             |
 | **Test Steps** | 1. Send traffic from server port(tgen) connected to T1 to the eBGP prefixes.<br/>2. Traffic will be equally distributed between the available paths.<br/>3. Bring the downlink linecard down(Process down).<br/>4. T1 will detect that and redirect the traffic to other T2 devices.<br/>5. Measure the time it takes to converge the traffic to other available path without any loss. |
 
-<p float="left">
-  <img src="Img/T2_Convergence_TSA_TSB.png" width="400"  hspace="350"/>
-</p>
-
-
 ### Test Case # 2.8
+
+<p float="left">
+  <img src="Img/T2_Convergence_TSA_TSB.png" width="300"  hspace="500"/>
+</p>
 
 | **Test Name**  | **Measure the convergence time when TSA/TSB(Traffic shit A/Traffic shift B) is performed on T2 chassis.**                         |
 | -------------- | :--------------------------------------- |
@@ -283,11 +280,11 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 | **Traffic**    | **Outbound**                             |
 | **Test Steps** | 1. Send traffic from server port(tgen) connected to T1 to the eBGP prefixes.<br/>2. Traffic will be equally distributed between the available paths.<br/>3. Perform TSA/TSB by updating the routemaps on chassis.<br/>4. T1 will detect that and redirect the traffic to other T2 devices.<br/>5. Measure the time it takes to converge the traffic to other available path without any loss.<br/>6. Repeat step 3 by performing TSA/TSB on individual LCs and measure convergence. |
 
-<p float="left">
-  <img src="Img/T2_Convergence_Downlink_Ungraceful_Restart.png" width="400"  hspace="350"/>
-</p>
-
 ### Test Case # 2.9
+
+<p float="left">
+  <img src="Img/T2_Convergence_Downlink_Ungraceful_Restart.png" width="300"  hspace="500"/>
+</p>
 
 | **Test Name**  | **Measure the convergence time during ungraceful restart of downlink linecard.**                         |
 | -------------- | :--------------------------------------- |
@@ -295,12 +292,12 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 | **Type**       | **Scalability and Performance**          |
 | **Traffic**    | **Outbound**                             |
 | **Test Steps** | 1. Send traffic from server port(tgen) connected to T1 to the eBGP prefixes.<br/>2. Traffic will be equally distributed between the available paths.<br/>3. Use command (nohup bash -c "sleep 5 && echo c > /proc/sysrq-trigger" &) to create panic on the downlink line card.<br/>4. Without TSA/TSB service, there might be traffic loss when the LC is coming up. It may advertise routes befor installing it in the ASIC.<br/>5. With TSA/TSB service, it should not see any loss.<br/>6. Measure the time it takes to converge the traffic to other available path without any loss.
-            
-<p float="left">
-  <img src="Img/T2_Convergence_Uplink_Ungraceful_Restart.png" width="400"  hspace="350"/>
-</p>
 
 ### Test Case # 2.10
+            
+<p float="left">
+  <img src="Img/T2_Convergence_Uplink_Ungraceful_Restart.png" width="300"  hspace="500"/>
+</p>
 
 | **Test Name**  | **Measure the convergence time during ungraceful restart of uplink linecard.**                         |
 | -------------- | :--------------------------------------- |
@@ -309,11 +306,11 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 | **Traffic**    | **Outbound**                             |
 | **Test Steps** | 1. Send traffic from server port(tgen) connected to T1 to the eBGP prefixes.<br/>2. Traffic will be equally distributed between the available paths.<br/>3. Use command (nohup bash -c "sleep 5 && echo c > /proc/sysrq-trigger" &) to create panic on the uplink line card.<br/>4. Without TSA/TSB service, there might be traffic loss when the LC is going down till iBGP timer expiry and when the LC is coming up(It may advertise routes befor installing it in the ASIC).<br/>5. With TSA/TSB service, there might be traffic loss when the LC is going down till iBGP timer expiry and when LC is coming up, it should not see any loss.<br/>6. Measure the time it takes to converge the traffic to other available path without any loss.
 
-<p float="left">
-  <img src="Img/T2_Convergence_Sup_Ungraceful_Restart.png" width="400"  hspace="350"/>
-</p>
-
 ### Test Case # 2.11
+
+<p float="left">
+  <img src="Img/T2_Convergence_Sup_Ungraceful_Restart.png" width="300"  hspace="500"/>
+</p>
 
 | **Test Name**  | **Measure the convergence time during ungraceful restart of supervisor on T2 chassis.**                         |
 | -------------- | :--------------------------------------- |
@@ -324,7 +321,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Inbound Traffic Topology
 
 <p float="left">
-  <img src="Img/T2_Convergence_Inbound_Traffic.png" width="400"  hspace="250"/>
+  <img src="Img/T2_Convergence_Inbound_Traffic.png" width="300"  hspace="500"/>
 </p>
 
 Tests from 2.1 - 2.11 can be repeated for Inbound traffic as well. 

@@ -94,20 +94,20 @@ Considering this design, triggers within a chassis could lead to route churn acr
 
 ### Setup Configuration
 
-T2 chassis with multiple LCs(Linecards). Each LC is having 2 asics.
-Tgen ports can be connected to any LC and any asic.
-EBGP session/sessions will be configured between Tgen port and one of the DUT port. 
-Routes will be advertised/withdrawn from that eBGP session to the DUT.
-Traffic will be sent from remaining tgen ports to the routes which are being advertised. 
+T2 chassis with multiple LCs(Linecards). Each LC is having 2 asics.<br/> 
+Tgen ports can be connected to any LC and any asic.<br/> 
+EBGP session/sessions will be configured between Tgen port and one of the DUT port. <br/> 
+Routes will be advertised/withdrawn from that eBGP session to the DUT.<br/> 
+Traffic will be sent from remaining tgen ports to the routes which are being advertised. <br/> 
 
 ### Test Methodology
 
-Intially routes will not be advertised and while sending traffic, no packets will be received. 
-Advertise the routes and measure the time it takes to install the routes in its RIB(Routing Information Base) and then in its FIB(Forwarding Information Base) to forward the traffic. 
-Convergence time should be measured from the time, routes are advertised and when the traffic is receiving at full transmitting rate.
-Similarly, withdraw the routes and measure the time it takes to delete the routes from DUT asics. 
-In order to measure the time it takes to delete the routes from asics after routes withdraw, we have to consider the time when it starts withdrawing the routes and when the traffic receiving rate goes to 0%.
-Differnet v4 and v6 prefix combinations will be tried for Route advertise/withdraw convergence numbers. (Ports can be connected to single asic same LC, different asic same LC, different asic different LCs.)
+Intially routes will not be advertised and while sending traffic, no packets will be received. <br/> 
+Advertise the routes and measure the time it takes to install the routes in its RIB(Routing Information Base) and then in its FIB(Forwarding Information Base) to forward the traffic. <br/> 
+Convergence time should be measured from the time, routes are advertised and when the traffic is receiving at full transmitting rate.<br/> 
+Similarly, withdraw the routes and measure the time it takes to delete the routes from DUT asics. <br/> 
+In order to measure the time it takes to delete the routes from asics after routes withdraw, we have to consider the time when it starts withdrawing the routes and when the traffic receiving rate goes to 0%.<br/> 
+Differnet v4 and v6 prefix combinations will be tried for Route advertise/withdraw convergence numbers. (Ports can be connected to single asic same LC, different asic same LC, different asic different LCs.)<br/> 
 Same test can be expanded to multiple sessions on single port or if multiple tgen ports are available, we can have single session on each tgen port.
 
 ### Test Setup

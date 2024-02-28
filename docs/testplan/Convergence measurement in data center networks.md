@@ -153,7 +153,7 @@ Same test can be expanded to multiple sessions on single port or if multiple tge
 ### Outbound Traffic Topology
 
 <p float="left">
-  <img src="Img/T2_Convergence_Outbound_Traffic.png" width="300"  hspace="500"/>
+  <img src="Img/T2_Convergence_Outbound_Traffic.png" width="800"  hspace="250"/>
 </p>
 
 ### Setup Configuration

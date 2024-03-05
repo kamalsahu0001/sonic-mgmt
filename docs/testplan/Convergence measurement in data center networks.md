@@ -87,8 +87,8 @@ Considering this design, triggers within a chassis could lead to route churn acr
 ### Route Performance Topology
 
 <p float="left">
-  <img src="Img/Route_Performance_new.png" width="450"  hspace="0"/>
-  <img src="Img/Route_Performance_multiple_sessions_new.png" width="500"/>
+  <img src="Img/Route_Performance.png" width="450"  hspace="0"/>
+  <img src="Img/Route_Performance_multiple_sessions.png" width="500"/>
 </p>
 
 
@@ -152,7 +152,7 @@ Same test can be expanded to multiple sessions on single port or if multiple tge
 ### Outbound Traffic Topology
 
 <p float="left">
-  <img src="Img/T2_Convergence_Outbound_Traffic_new.png" width="800"  hspace="50"/>
+  <img src="Img/T2_Convergence_Outbound_Traffic.png" width="800"  hspace="50"/>
 </p>
 
 ### Setup Configuration
@@ -185,7 +185,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 
 ### Test Case # 2.1
 <p float="left">
-  <img src="Img/T2_Convergence_Link_Down_new.png" width="500"  hspace="150"/>
+  <img src="Img/T2_Convergence_Link_Down.png" width="500"  hspace="150"/>
 </p>
 
 
@@ -208,7 +208,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.3
 
 <p float="left">
-  <img src="Img/T2_Convergence_PO_Member_Down_new.png" width="500"  hspace="150"/>
+  <img src="Img/T2_Convergence_PO_Member_Down.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name** &nbsp;      | **Measure the convergence time when one of the active member of portchannel goes down.**                         |
@@ -221,7 +221,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.4
 
 <p float="left">
-  <img src="Img/T2_Convergence_PO_Down_new.png" width="500"  hspace="150"/>
+  <img src="Img/T2_Convergence_PO_Down.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name** &nbsp;      | **Measure the convergence time when the portchannel goes down.**                         |
@@ -243,7 +243,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.6
 
 <p float="left">
-  <img src="Img/T2_Convergence_Uplink_LC_Down_new.png" width="500"  hspace="150"/>
+  <img src="Img/T2_Convergence_Uplink_LC_Down.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name** &nbsp;      | **Measure the convergence time when the uplink LC goes down.**                         |
@@ -256,7 +256,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.7
 
 <p float="left">
-  <img src="Img/T2_Convergence_Downlink_LC_Down_new.png" width="500"  hspace="150"/>
+  <img src="Img/T2_Convergence_Downlink_LC_Down.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name** &nbsp;      | **Measure the convergence time when the downlink LC goes down.**                         |
@@ -269,7 +269,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.8
 
 <p float="left">
-  <img src="Img/T2_Convergence_TSA_TSB_new.png" width="500"  hspace="150"/>
+  <img src="Img/T2_Convergence_TSA_TSB.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name** &nbsp;      | **Maeasure the convergence time when TSA/TSB(Traffic shit A/Traffic shift B) is performed on T2 chassis.**                         |
@@ -282,7 +282,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.9
 
 <p float="left">
-  <img src="Img/T2_Convergence_Downlink_Ungraceful_Restart_new.png" width="500"  hspace="150"/>
+  <img src="Img/T2_Convergence_Downlink_Ungraceful_Restart.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name**  &nbsp;     | **Measure the convergence time during ungraceful restart of downlink linecard.**                         |
@@ -295,7 +295,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.10
             
 <p float="left">
-  <img src="Img/T2_Convergence_Uplink_Ungraceful_Restart_new.png" width="500"  hspace="150"/>
+  <img src="Img/T2_Convergence_Uplink_Ungraceful_Restart.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name** &nbsp;      | **Measure the convergence time during ungraceful restart of uplink linecard.**                         |
@@ -308,7 +308,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.11
 
 <p float="left">
-  <img src="Img/T2_Convergence_Sup_Ungraceful_Restart_new.png" width="500"  hspace="150"/>
+  <img src="Img/T2_Convergence_Sup_Ungraceful_Restart.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name** &nbsp;      | **Measure the convergence time during ungraceful restart of supervisor on T2 chassis.**                         |

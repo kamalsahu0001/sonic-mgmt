@@ -87,8 +87,8 @@ Considering this design, triggers within a chassis could lead to route churn acr
 ### Route Performance Topology
 
 <p float="left">
-  <img src="Img/Route_Performance.png" width="400"  hspace="50"/>
-  <img src="Img/Route_Performance_multiple_sessions.png" width="425"/>
+  <img src="Img/Route_Performance_new.png" width="450"  hspace="0"/>
+  <img src="Img/Route_Performance_multiple_sessions_new.png" width="500"/>
 </p>
 
 
@@ -152,7 +152,7 @@ Same test can be expanded to multiple sessions on single port or if multiple tge
 ### Outbound Traffic Topology
 
 <p float="left">
-  <img src="Img/T2_Convergence_Outbound_Traffic.png" width="700"  hspace="100"/>
+  <img src="Img/T2_Convergence_Outbound_Traffic_new.png" width="800"  hspace="50"/>
 </p>
 
 ### Setup Configuration
@@ -185,7 +185,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 
 ### Test Case # 2.1
 <p float="left">
-  <img src="Img/T2_Convergence_Link_Down.png" width="700"  hspace="100"/>
+  <img src="Img/T2_Convergence_Link_Down_new.png" width="500"  hspace="150"/>
 </p>
 
 
@@ -208,7 +208,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.3
 
 <p float="left">
-  <img src="Img/T2_Convergence_PO_Member_Down.png" width="700"  hspace="100"/>
+  <img src="Img/T2_Convergence_PO_Member_Down_new.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name** &nbsp;      | **Measure the convergence time when one of the active member of portchannel goes down.**                         |
@@ -221,7 +221,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.4
 
 <p float="left">
-  <img src="Img/T2_Convergence_PO_Down.png" width="700"  hspace="100"/>
+  <img src="Img/T2_Convergence_PO_Down_new.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name** &nbsp;      | **Measure the convergence time when the portchannel goes down.**                         |
@@ -243,7 +243,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.6
 
 <p float="left">
-  <img src="Img/T2_Convergence_Uplink_LC_Down.png" width="700"  hspace="100"/>
+  <img src="Img/T2_Convergence_Uplink_LC_Down_new.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name** &nbsp;      | **Measure the convergence time when the uplink LC goes down.**                         |
@@ -256,7 +256,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.7
 
 <p float="left">
-  <img src="Img/T2_Convergence_Downlink_LC_Down.png" width="700"  hspace="100"/>
+  <img src="Img/T2_Convergence_Downlink_LC_Down_new.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name** &nbsp;      | **Measure the convergence time when the downlink LC goes down.**                         |
@@ -269,7 +269,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.8
 
 <p float="left">
-  <img src="Img/T2_Convergence_TSA_TSB.png" width="700"  hspace="100"/>
+  <img src="Img/T2_Convergence_TSA_TSB_new.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name** &nbsp;      | **Maeasure the convergence time when TSA/TSB(Traffic shit A/Traffic shift B) is performed on T2 chassis.**                         |
@@ -282,12 +282,12 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.9
 
 <p float="left">
-  <img src="Img/T2_Convergence_Downlink_Ungraceful_Restart.png" width="700"  hspace="100"/>
+  <img src="Img/T2_Convergence_Downlink_Ungraceful_Restart_new.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name**  &nbsp;     | **Measure the convergence time during ungraceful restart of downlink linecard.**                         |
 | ------------------- | :--------------------------------------- |
-| **Topology**        | **Topology 2e**                          | 
+| **Topology**        | **Topology 2g**                          | 
 | **Type**            | **Scalability and Performance**          |
 | **Traffic**         | **Outbound**                             |
 | **Test Steps**      | 1. Send traffic from server port(tgen) connected to T1 to the eBGP prefixes.<br/>2. Traffic will be equally distributed between the available paths.<br/>3. Use command (nohup bash -c "sleep 5 && echo c > /proc/sysrq-trigger" &) to create panic on the downlink line card.<br/>4. Without TSA/TSB service, there might be traffic loss when the LC is coming up. It may advertise routes befor installing it in the ASIC.<br/>5. With TSA/TSB service, it should not see any loss.<br/>6. Measure the time it takes to converge the traffic to other available path without any loss.
@@ -295,12 +295,12 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.10
             
 <p float="left">
-  <img src="Img/T2_Convergence_Uplink_Ungraceful_Restart.png" width="700"  hspace="100"/>
+  <img src="Img/T2_Convergence_Uplink_Ungraceful_Restart_new.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name** &nbsp;      | **Measure the convergence time during ungraceful restart of uplink linecard.**                         |
 | ------------------- | :--------------------------------------- |
-| **Topology**        | **Topology 2f**                          | 
+| **Topology**        | **Topology 2h**                          | 
 | **Type**            | **Scalability and Performance**          |
 | **Traffic**         | **Outbound**                             |
 | **Test Steps**      | 1. Send traffic from server port(tgen) connected to T1 to the eBGP prefixes.<br/>2. Traffic will be equally distributed between the available paths.<br/>3. Use command (nohup bash -c "sleep 5 && echo c > /proc/sysrq-trigger" &) to create panic on the uplink line card.<br/>4. Without TSA/TSB service, there might be traffic loss when the LC is going down till iBGP timer expiry and when the LC is coming up(It may advertise routes befor installing it in the ASIC).<br/>5. With TSA/TSB service, there might be traffic loss when the LC is going down till iBGP timer expiry and when LC is coming up, it should not see any loss.<br/>6. Measure the time it takes to converge the traffic to other available path without any loss.
@@ -308,11 +308,12 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Test Case # 2.11
 
 <p float="left">
-  <img src="Img/T2_Convergence_Sup_Ungraceful_Restart.png" width="700"  hspace="100"/>
+  <img src="Img/T2_Convergence_Sup_Ungraceful_Restart_new.png" width="500"  hspace="150"/>
 </p>
 
 | **Test Name** &nbsp;      | **Measure the convergence time during ungraceful restart of supervisor on T2 chassis.**                         |
 | ------------------- | :--------------------------------------- |
+| **Topology**        | **Topology 2i**                          |
 | **Type**            | **Scalability and Performance**                    |
 | **Traffic**         | **Outbound**                             |
 | **Test Steps**      | 1. Send traffic from server port(tgen) connected to T1 to the eBGP prefixes.<br/>2. Traffic will be equally distributed between the available paths.<br/>3. Ungracefully restart the supervisor.<br/>4. Without TSA/TSB service, LCs go down gracefully(external links shutdown) on LCs before fabric links reset on Sup. So, no traffic loss while going down but might see loss during LCs coming up.<br/>5. With TSA/TSB service, there might be traffic loss when the LC is going down till iBGP timer expiry and when LC is coming up, it should not see any loss.<br/>6. Measure the time it takes to converge the traffic to other available path without any loss.
@@ -320,7 +321,7 @@ Different triggers(planned/unplanned) mentioned above are performed at different
 ### Inbound Traffic Topology
 
 <p float="left">
-  <img src="Img/T2_Convergence_Inbound_Traffic.png" width="700"  hspace="100"/>
+  <img src="Img/T2_Convergence_Inbound_Traffic.png" width="500"  hspace="150"/>
 </p>
 
 Tests from 2.1 - 2.11 can be repeated for Inbound traffic as well. 

@@ -201,3 +201,19 @@ Before running **RDMA-related tests** (e.g., PFC, ECN, PFCWD), ensure the follow
 - ✅ **PFCWD (PFC Watchdog)** is enabled by default
 
 🛠️ The PFCWD configuration should be present in the DUT’s `config_db.json` file to ensure it is active on boot.
+
+In case you're testing with **Aresone** hardware, set the PFC queue size to `4` by updating the `variable.py` file in the following location:
+
+**File:** `~/sonic-mgmt/tests/common/snappi_tests/variable.py`
+
+- Locate the line where the PFC queue size is defined and set it to `4`:
+- pfcQueueGroupSize = 4
+
+## Configuring DUT and Ixia Ports for BGP Tests
+
+When running **BGP test cases**, the following fields will be used to configure the **DUT** and **Ixia ports**:
+
+- **`dut_ip_start`**: Specifies the starting IP address for the DUT interface.
+- **`snappi_ip_start`**: Specifies the starting IP address for the Ixia interface.
+
+These fields will allow proper mapping and configuration of DUT and Ixia ports during BGP testing to ensure seamless traffic flow.

@@ -9,16 +9,15 @@
 
 # Workflows
 Please look into the [basic docker commands to create the sonic-mgmt environment](DockerCommands.md).
-Please make sure that you have loaded the sonic docker image to be executed using locker load command.
+Please make sure that you have loaded the sonic docker image to be executed using docker load command.
 ```sudo docker load -i docker-sonic-mgmt```
-### workflow1
-* Fork the sonic-mgmt(https://github.com/Azure/sonic-mgmt.git) repo.
-  * <i>Make sure you clone the forked version from your repo</i>
-      - Ex: git clone https://github.com/sonic-net/sonic-mgmt
-* load the docker image such that it mounts sonic-mgmt inside the container.
+### Setting up sonic-mgmt docker container.
+* Fork the sonic-mgmt repo (https://github.com/sonic-net/sonic-mgmt).
+    - Ex: git clone https://github.com/sonic-net/sonic-mgmt
+* load the docker image such that it mounts sonic-mgmt inside the container (recommended).
     * <i> Make sure the path is matching the criteria</i>
     * sudo docker run -it --name sonic --privileged -v /home/ubuntu/sonic-mgmt/:/var/johnar/sonic-mgmt  --user johnar:gjohnar docker-sonic-mgmt
-    * if no mount is required then run the command "sudo docker run -it --name sonic docker-sonic-mgmt"
+    * if no mount is required then run the command "sudo docker run -it --name sonic docker-sonic-mgmt" (optional)
 * Install Snappi packages
     * python -m pip install --upgrade "snappi==0.9.1"
     * python -m pip install --upgrade "snappi[convergence]==0.4.1"
@@ -31,7 +30,7 @@ Please make sure that you have loaded the sonic docker image to be executed usin
     - ansible/group_vars/snappi-sonic/snappi-sonic.yml
     - ansible/snappi-sonic
     - ansible/testbed.yaml
-* Run the test
+* Running the tests
   * cd ~/sonic-mgmt/tests/
   * Add environment variables
     * export ANSIBLE_CONFIG=../ansible
@@ -40,7 +39,7 @@ Please make sure that you have loaded the sonic docker image to be executed usin
     * py.test --inventory ../ansible/snappi-sonic --host-pattern sonic-s6100-dut1 --testbed vms-snappi-sonic --testbed_file ../ansible/testbed.csv --show-capture=stdout --log-cli-level info --showlocals -ra --allow_recover --skip_sanity --disable_loganalyzer test_pretest.py
   * Run Multi-Dut case
     * py.test --inventory ../ansible/snappi-sonic --host-pattern all --testbed vms-snappi-sonic-multidut --testbed_file ../ansible/testbed.csv --show-capture=stdout --log-cli-level info --showlocals -ra --allow_recover --skip_sanity --disable_loganalyzer test_pretest.py
- * In this workflow your test script or code will remain intact even if docker image is destroyed unintentionally since you are actually keeping the code in the (mounted) local directory.
+ * Test script or code will remain intact even if docker image is destroyed unintentionally by keeping the code in the (mounted) local directory.
 
 
 # Steps for Running snappi-tests Using sonic-mgmt Framework
@@ -164,6 +163,17 @@ To enable **fanout speed mode**, apply the changes introduced in **PR#111111**.
   - **New Format:** `PortX.Y`
 
 📌 Ensure your testbed and configuration files reflect this naming convention if you're using the fanout mode.
+
+## Step 11: Custom Ixia API Server Credentials
+
+By default, the Ixia API server uses `admin/admin`.
+
+To use custom credentials:
+- Edit `~/sonic-mgmt/tests/common/snappi_fixtures.py`
+- Uncomment and update these lines:
+
+api._username = "your_username"
+api._password = "your_password"
 
 ## ⚠️ Additional Requirement: Configure PFC, ECN, and PFCWD on DUT
 

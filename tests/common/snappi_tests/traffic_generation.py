@@ -431,9 +431,9 @@ def run_traffic(duthost,
         clear_dut_pfc_counters(host)
 
     logger.info("Starting transmit on all flows ...")
-    ts = api.transmit_state()
-    ts.state = ts.START
-    api.set_transmit_state(ts)
+    cs = api.control_state()
+    cs.traffic.flow_transmit.state = cs.traffic.flow_transmit.START
+    api.set_control_state(cs)
     if snappi_extra_params.reboot_type:
         logger.info(f"Issuing a {snappi_extra_params.reboot_type} reboot on the dut {duthost.hostname}")
         # The following reboot command waits until the DUT is accessible by SSH. It does not wait for
@@ -517,9 +517,9 @@ def run_traffic(duthost,
     logger.info("Dumping per-flow statistics")
     flow_metrics = fetch_snappi_flow_metrics(api, all_flow_names)
     logger.info("Stopping transmit on all remaining flows")
-    ts = api.transmit_state()
-    ts.state = ts.STOP
-    api.set_transmit_state(ts)
+    cs = api.control_state()
+    cs.traffic.flow_transmit.state = cs.traffic.flow_transmit.STOP
+    api.set_control_state(cs)
 
     return flow_metrics, switch_device_results, in_flight_flow_metrics
 
@@ -1021,9 +1021,9 @@ def run_traffic_and_collect_stats(rx_duthost,
         ixnet_rest_api.Traffic.Apply()
 
     logger.info("Starting transmit on all flows ...")
-    ts = api.transmit_state()
-    ts.state = ts.START
-    api.set_transmit_state(ts)
+    cs = api.control_state()
+    cs.traffic.flow_transmit.state = cs.traffic.flow_transmit.START
+    api.set_control_state(cs)
 
     time.sleep(5)
     iter_count = round((int(exp_dur_sec) - stats_interval)/stats_interval)
@@ -1095,9 +1095,9 @@ def run_traffic_and_collect_stats(rx_duthost,
         else:
             if (attempts == 4):
                 logger.info("Stopping transmit on all remaining flows")
-                ts = api.transmit_state()
-                ts.state = ts.STOP
-                api.set_transmit_state(ts)
+                cs = api.control_state()
+                cs.traffic.flow_transmit.state = cs.traffic.flow_transmit.STOP
+                api.set_control_state(cs)
             time.sleep(stats_interval/4)
             attempts += 1
 

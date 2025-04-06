@@ -419,10 +419,10 @@ def run_traffic(duthost,
 
     if pcap_type != packet_capture.NO_CAPTURE:
         logger.info("Starting packet capture ...")
-        cs = api.capture_state()
-        cs.port_names = snappi_extra_params.packet_capture_ports
-        cs.state = cs.START
-        api.set_capture_state(cs)
+        cs = api.control_state()
+        cs.port.capture.port_names = snappi_extra_params.packet_capture_ports
+        cs.port.capture.state = cs.port.capture.START
+        api.set_control_state(cs)
 
     for host in set([*snappi_extra_params.multi_dut_params.ingress_duthosts,
                      *snappi_extra_params.multi_dut_params.egress_duthosts, duthost]):
@@ -505,9 +505,9 @@ def run_traffic(duthost,
         logger.info("Stopping packet capture ...")
         request = api.capture_request()
         request.port_name = snappi_extra_params.packet_capture_ports[0]
-        cs = api.capture_state()
-        cs.state = cs.STOP
-        api.set_capture_state(cs)
+        cs = api.control_state()
+        cs.port.capture.state = cs.port.capture.STOP
+        api.set_control_state(cs)
         logger.info("Retrieving and saving packet capture to {}.pcapng".format(snappi_extra_params.packet_capture_file))
         pcap_bytes = api.get_capture(request)
         with open(snappi_extra_params.packet_capture_file + ".pcapng", 'wb') as fid:
@@ -1000,10 +1000,10 @@ def run_traffic_and_collect_stats(rx_duthost,
 
     if pcap_type != packet_capture.NO_CAPTURE:
         logger.info("Starting packet capture ...")
-        cs = api.capture_state()
-        cs.port_names = snappi_extra_params.packet_capture_ports
-        cs.state = cs.START
-        api.set_capture_state(cs)
+        cs = api.control_state()
+        cs.port.capture.port_names = snappi_extra_params.packet_capture_ports
+        cs.port.capture.state = cs.port.capture.START
+        api.set_control_state(cs)
 
     # Returns the rest API object for features not present in Snappi
     ixnet_rest_api = api._ixnetwork
@@ -1108,9 +1108,9 @@ def run_traffic_and_collect_stats(rx_duthost,
         logger.info("Stopping packet capture ...")
         request = api.capture_request()
         request.port_name = snappi_extra_params.packet_capture_ports[0]
-        cs = api.capture_state()
-        cs.state = cs.STOP
-        api.set_capture_state(cs)
+        cs = api.control_state()
+        cs.port.capture.state = cs.port.capture.STOP
+        api.set_control_state(cs)
         logger.info("Retrieving and saving packet capture to {}.pcapng".format(snappi_extra_params.packet_capture_file))
         pcap_bytes = api.get_capture(request)
         with open(snappi_extra_params.packet_capture_file + ".pcapng", 'wb') as fid:

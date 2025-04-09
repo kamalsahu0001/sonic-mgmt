@@ -16,7 +16,7 @@ Please make sure that you have loaded the sonic docker image to be executed usin
     - Ex: git clone https://github.com/sonic-net/sonic-mgmt
 * load the docker image such that it mounts sonic-mgmt inside the container (recommended).
     * <i> Make sure the path is matching the criteria</i>
-    * sudo docker run -it --name sonic --privileged -v /home/ubuntu/sonic-mgmt/:/var/johnar/sonic-mgmt  --user johnar:gjohnar docker-sonic-mgmt
+    * sudo docker run -it --name sonic --privileged -v /home/ubuntu/sonic-mgmt/:/var/AzDevOps/sonic-mgmt  --user AzDevOps:gAzDevOps docker-sonic-mgmt
     * if no mount is required then run the command "sudo docker run -it --name sonic docker-sonic-mgmt" (optional)
 * Install Snappi packages
     * python -m pip install --upgrade "snappi==0.9.1"
@@ -36,9 +36,9 @@ Please make sure that you have loaded the sonic docker image to be executed usin
     * export ANSIBLE_CONFIG=../ansible
     * export ANSIBLE_LIBRARY=../ansible
   * Run Single-Dut case
-    * py.test --inventory ../ansible/snappi-sonic --host-pattern sonic-s6100-dut1 --testbed vms-snappi-sonic --testbed_file ../ansible/testbed.csv --show-capture=stdout --log-cli-level info --showlocals -ra --allow_recover --skip_sanity --disable_loganalyzer test_pretest.py
+    * py.test --inventory ../ansible/snappi-sonic --host-pattern sonic-s6100-dut1 --testbed vms-snappi-sonic --testbed_file ../ansible/testbed.yaml --show-capture=stdout --log-cli-level info --showlocals -ra --allow_recover --skip_sanity --disable_loganalyzer test_pretest.py
   * Run Multi-Dut case
-    * py.test --inventory ../ansible/snappi-sonic --host-pattern all --testbed vms-snappi-sonic-multidut --testbed_file ../ansible/testbed.csv --show-capture=stdout --log-cli-level info --showlocals -ra --allow_recover --skip_sanity --disable_loganalyzer test_pretest.py
+    * py.test --inventory ../ansible/snappi-sonic --host-pattern all --testbed vms-snappi-sonic-multidut --testbed_file ../ansible/testbed.yaml --show-capture=stdout --log-cli-level info --showlocals -ra --allow_recover --skip_sanity --disable_loganalyzer test_pretest.py
  * Test script or code will remain intact even if docker image is destroyed unintentionally by keeping the code in the (mounted) local directory.
 
 
@@ -137,7 +137,7 @@ Verify the following three JSON files are correctly populated with traffic prior
     0, 1, 2, 5, 6
     ```
 
- ⚠️ **Note:** These files control which priorities are treated as lossless vs lossy. Ensure they align with your QoS and traffic testing requirements.
+ ⚠️ **Note:** These files control which priorities are treated as lossless vs lossy. Ensure they align with your QoS and traffic testing requirements. Also, make sure that you have enough permissions for creating those files. If not, it will not be able to create those files. 
 
 
 ## Step 9: Configure Minigraph on DUT

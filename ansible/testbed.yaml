@@ -218,7 +218,7 @@
   topo: ptf64
   ptf_image_name: docker-ptf-snappi
   ptf: snappi-sonic-ptf
-  ptf_ip: 10.251.0.232
+  ptf_ip: 10.36.79.8
   ptf_ipv6:
   server: Server_6
   vm_base:
@@ -233,7 +233,7 @@
   topo: ptf64
   ptf_image_name: docker-ptf-snappi
   ptf: snappi-sonic-ptf
-  ptf_ip: 10.251.0.232
+  ptf_ip: 10.36.79.8
   ptf_ipv6:
   server: Server_6
   vm_base:

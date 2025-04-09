@@ -1,0 +1,8 @@
+{
+    "vms-snappi-sonic": {
+        "sonic-s6100-dut1": [
+            3,
+            4
+        ]
+    }
+}

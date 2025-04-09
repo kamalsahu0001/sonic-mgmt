@@ -1,0 +1,347 @@
+{
+    "vms-snappi-sonic": {
+        "sonic-s6100-dut1": {
+            "intf_status": {
+                "Ethernet0": {
+                    "name": "Ethernet0",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE1",
+                    "vlan": "routed",
+                    "oper_state": "up",
+                    "admin_state": "up",
+                    "type": "QSFP28 or later"
+                },
+                "Ethernet8": {
+                    "name": "Ethernet8",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE2",
+                    "vlan": "routed",
+                    "oper_state": "up",
+                    "admin_state": "up",
+                    "type": "QSFP28 or later"
+                },
+                "Ethernet16": {
+                    "name": "Ethernet16",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE3",
+                    "vlan": "routed",
+                    "oper_state": "up",
+                    "admin_state": "up",
+                    "type": "QSFP28 or later"
+                },
+                "Ethernet24": {
+                    "name": "Ethernet24",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE4",
+                    "vlan": "routed",
+                    "oper_state": "up",
+                    "admin_state": "up",
+                    "type": "QSFP28 or later"
+                },
+                "Ethernet4": {
+                    "name": "Ethernet4",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet5/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "QSFP28 or later"
+                },
+                "Ethernet12": {
+                    "name": "Ethernet12",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet6/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "QSFP28 or later"
+                },
+                "Ethernet20": {
+                    "name": "Ethernet20",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet7/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet28": {
+                    "name": "Ethernet28",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet8/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet32": {
+                    "name": "Ethernet32",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet9/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "QSFP28 or later"
+                },
+                "Ethernet36": {
+                    "name": "Ethernet36",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet10/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "QSFP28 or later"
+                },
+                "Ethernet40": {
+                    "name": "Ethernet40",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet11/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "QSFP28 or later"
+                },
+                "Ethernet44": {
+                    "name": "Ethernet44",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet12/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "QSFP28 or later"
+                },
+                "Ethernet48": {
+                    "name": "Ethernet48",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet13/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "QSFP28 or later"
+                },
+                "Ethernet52": {
+                    "name": "Ethernet52",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet14/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "QSFP28 or later"
+                },
+                "Ethernet56": {
+                    "name": "Ethernet56",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet15/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet60": {
+                    "name": "Ethernet60",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet16/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet64": {
+                    "name": "Ethernet64",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet17/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet68": {
+                    "name": "Ethernet68",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet18/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet72": {
+                    "name": "Ethernet72",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet19/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet76": {
+                    "name": "Ethernet76",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet20/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet80": {
+                    "name": "Ethernet80",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet21/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet84": {
+                    "name": "Ethernet84",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet22/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet88": {
+                    "name": "Ethernet88",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet23/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet92": {
+                    "name": "Ethernet92",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet24/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet96": {
+                    "name": "Ethernet96",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet25/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet100": {
+                    "name": "Ethernet100",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet26/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet104": {
+                    "name": "Ethernet104",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet27/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet108": {
+                    "name": "Ethernet108",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet28/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet112": {
+                    "name": "Ethernet112",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet29/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet116": {
+                    "name": "Ethernet116",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet30/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "N/A"
+                },
+                "Ethernet120": {
+                    "name": "Ethernet120",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet31/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "QSFP28 or later"
+                },
+                "Ethernet124": {
+                    "name": "Ethernet124",
+                    "speed": "100G",
+                    "fec": "rs",
+                    "alias": "Ethernet32/1",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "QSFP28 or later"
+                }
+            },
+            "features": {
+                "bgp": "enabled",
+                "database": "always_enabled",
+                "dhcp_relay": "enabled",
+                "lldp": "enabled",
+                "macsec": "disabled",
+                "mgmt-framework": "enabled",
+                "mux": "always_disabled",
+                "nat": "disabled",
+                "pmon": "enabled",
+                "radv": "enabled",
+                "sflow": "disabled",
+                "snmp": "enabled",
+                "swss": "enabled",
+                "syncd": "enabled",
+                "teamd": "enabled",
+                "telemetry": "enabled"
+            },
+            "asic_services": {}
+        }
+    }
+}

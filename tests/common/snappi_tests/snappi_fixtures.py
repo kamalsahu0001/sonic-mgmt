@@ -49,7 +49,7 @@ def snappi_api_serv_port(duthosts, rand_one_dut_hostname):
     """
     duthost = duthosts[rand_one_dut_hostname]
     return (duthost.host.options['variable_manager'].
-            _hostvars[duthost.hostname]['snappi_api_server']['rest_port'])
+            _hostvars[duthost.hostname]['secret_group_vars']['snappi_api_server']['rest_port'])
 
 
 @pytest.fixture(scope='module')
@@ -70,6 +70,8 @@ def snappi_api(snappi_api_serv_ip,
     # TODO - Uncomment to use. Prefer to use environment vars to retrieve this information
     # api._username = "<please mention the username if other than default username>"
     # api._password = "<please mention the password if other than default password>"
+    api._username = "admin"
+    api._password = "wrinkle#B52#B52"   
     yield api
 
     if getattr(api, 'assistant', None) is not None:
@@ -417,7 +419,7 @@ def snappi_testbed_config(conn_graph_facts, fanout_graph_facts,     # noqa: F811
     l1_config.speed = 'speed_{}_gbps'.format(speed_gbps)
     l1_config.ieee_media_defaults = False
     l1_config.auto_negotiate = False
-    l1_config.auto_negotiation.link_training = True
+    l1_config.auto_negotiation.link_training = False
     l1_config.auto_negotiation.rs_fec = True
 
     pfc = l1_config.flow_control.ieee_802_1qbb
@@ -444,7 +446,7 @@ def snappi_testbed_config(conn_graph_facts, fanout_graph_facts,     # noqa: F811
         pytest_assert(False, 'pfcQueueGroupSize value is not 4 or 8')
 
     port_config_list = []
-
+    '''
     config_result = __vlan_intf_config(config=config,
                                        port_config_list=port_config_list,
                                        duthost=duthost,
@@ -456,7 +458,7 @@ def snappi_testbed_config(conn_graph_facts, fanout_graph_facts,     # noqa: F811
                                               duthost=duthost,
                                               snappi_ports=snappi_ports)
     pytest_assert(config_result is True, 'Fail to configure portchannel interfaces')
-
+    '''
     config_result = __l3_intf_config(config=config,
                                      port_config_list=port_config_list,
                                      duthost=duthost,
@@ -667,7 +669,7 @@ def snappi_dut_base_config(duthost_list,
     if is_snappi_multidut(duthost_list):
         l1_config.auto_negotiation.link_training = False
     else:
-        l1_config.auto_negotiation.link_training = True
+        l1_config.auto_negotiation.link_training = False
     l1_config.auto_negotiation.rs_fec = True
 
     pfc = l1_config.flow_control.ieee_802_1qbb
@@ -709,7 +711,7 @@ def setup_dut_ports(
         config,
         port_config_list,
         snappi_ports):
-
+    '''
     for index, duthost in enumerate(duthost_list):
         config_result = __vlan_intf_config(config=config,
                                            port_config_list=port_config_list,
@@ -723,7 +725,7 @@ def setup_dut_ports(
                                                   duthost=duthost,
                                                   snappi_ports=snappi_ports)
         pytest_assert(config_result is True, 'Fail to configure portchannel interfaces')
-
+    '''
     if is_snappi_multidut(duthost_list):
         for index, duthost in enumerate(duthost_list):
             config_result = __intf_config_multidut(

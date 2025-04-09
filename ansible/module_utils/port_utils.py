@@ -309,6 +309,9 @@ def get_port_alias_to_name_map(hwsku, asic_name=None):
         elif hwsku == "Accton-AS7726-32X":
             for i in range(1, 33):
                 port_alias_to_name_map["hundredGigE%d" % i] = "Ethernet%d" % ((i - 1) * 4)
+        elif hwsku == "Accton-AS9716-32D":
+            for i in range(1, 33):
+                port_alias_to_name_map["fourHundredGigE%d" % i] = "Ethernet%d" % ((i - 1) * 8)
         elif hwsku == "montara":
             for i in range(1, 33):
                 port_alias_to_name_map["hundredGigE%d" % i] = "Ethernet%d" % ((i - 1) * 4)

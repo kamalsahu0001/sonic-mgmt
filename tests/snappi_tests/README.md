@@ -200,3 +200,5 @@ When running **BGP test cases**, the following fields will be used to configure 
 - **`snappi_ip_start`**: Specifies the starting IP address for the Ixia interface.
 
 These fields will allow proper mapping and configuration of DUT and Ixia ports during BGP testing to ensure seamless traffic flow.
+
+⚠️ **Note:** Current sonic-mgmt contains snappi and snappi-ixnetwork versions as "0.9.1".  New snappi model will have changes in connecting ports, start/stop traffic and start/stop captures. All these changes are incorporated in PR# (https://github.com/sonic-net/sonic-mgmt/pull/17914). Once these changes are incorporated, sonic-mgmt will have latest snappi versions.

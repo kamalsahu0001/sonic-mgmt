@@ -36,9 +36,9 @@ Please make sure that you have loaded the sonic docker image to be executed usin
     * export ANSIBLE_CONFIG=../ansible
     * export ANSIBLE_LIBRARY=../ansible
   * Run Single-Dut case
-    * py.test --inventory ../ansible/snappi-sonic --host-pattern sonic-s6100-dut1 --testbed vms-snappi-sonic --testbed_file ../ansible/testbed.yaml --show-capture=stdout --log-cli-level info --showlocals -ra --allow_recover --skip_sanity --disable_loganalyzer test_pretest.py
+    * pytest --inventory ../ansible/snappi-sonic --host-pattern sonic-s6100-dut1 --testbed vms-snappi-sonic --testbed_file ../ansible/testbed.yaml --show-capture=stdout --log-cli-level info --showlocals -ra --allow_recover --skip_sanity --disable_loganalyzer test_pretest.py
   * Run Multi-Dut case
-    * py.test --inventory ../ansible/snappi-sonic --host-pattern all --testbed vms-snappi-sonic-multidut --testbed_file ../ansible/testbed.yaml --show-capture=stdout --log-cli-level info --showlocals -ra --allow_recover --skip_sanity --disable_loganalyzer test_pretest.py
+    * pytest --inventory ../ansible/snappi-sonic --host-pattern all --testbed vms-snappi-sonic-multidut --testbed_file ../ansible/testbed.yaml --show-capture=stdout --log-cli-level info --showlocals -ra --allow_recover --skip_sanity --disable_loganalyzer test_pretest.py
  * Test script or code will remain intact even if docker image is destroyed unintentionally by keeping the code in the (mounted) local directory.
 
 
@@ -96,7 +96,7 @@ Please make sure that you have loaded the sonic docker image to be executed usin
 **Location:** `~/sonic-mgmt/tests`
 
 Run the following command to execute the pretest:
-- py.test --inventory ../ansible/snappi-sonic --host-pattern sonic-s6100-dut1 --testbed vms-snappi-sonic --testbed_file ../ansible/testbed.yaml --show-capture=stdout --log-cli-level info --showlocals -ra --allow_recover --skip_sanity --disable_loganalyzer test_pretest.py
+- python3 -m pytest --inventory ../ansible/snappi-sonic --host-pattern sonic-s6100-dut1 --testbed vms-snappi-sonic --testbed_file ../ansible/testbed.yaml --show-capture=stdout --log-cli-level info --showlocals -ra --allow_recover --skip_sanity --disable_loganalyzer test_pretest.py
 
 ## Step 7: Verify Pretest Output
 **File:** `~/sonic-mgmt/tests/metadata/vms-snappi-sonic.json`
@@ -200,5 +200,3 @@ When running **BGP test cases**, the following fields will be used to configure 
 - **`snappi_ip_start`**: Specifies the starting IP address for the Ixia interface.
 
 These fields will allow proper mapping and configuration of DUT and Ixia ports during BGP testing to ensure seamless traffic flow.
-
-⚠️ **Note:** Current sonic-mgmt contains snappi and snappi-ixnetwork versions as "0.9.1".  New snappi model will have changes in connecting ports, start/stop traffic and start/stop captures. All these changes are incorporated in PR# (https://github.com/sonic-net/sonic-mgmt/pull/17914). Once these changes are incorporated, sonic-mgmt will have latest snappi versions.

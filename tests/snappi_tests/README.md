@@ -58,6 +58,7 @@ Please make sure that you have loaded the sonic docker image to be executed usin
 - Ensure your DUT’s `hwsku` is defined
 - Add the `hwsku` if it’s missing
 
+
 ## Step 5: Changing default DUT username and password
 **File:** `~/sonic-mgmt/ansible/group_vars/snappi-sonic/secrets.yml`
 

@@ -7,7 +7,6 @@ import logging
 import snappi
 import sys
 import random
-import snappi_convergence
 from tests.common.helpers.assertions import pytest_require
 from tests.common.errors import RunAnsibleModuleFail
 from ipaddress import ip_address, IPv4Address, IPv6Address
@@ -161,7 +160,7 @@ def __l3_intf_config(config, port_config_list, duthost, snappi_ports):
 
         ethernet = device.ethernets.add()
         ethernet.name = 'Ethernet Port {}'.format(port_id)
-        ethernet.port_name = config.ports[port_id].name
+        ethernet.connection.port_name = config.ports[port_id].name
         ethernet.mac = mac
 
         ip_stack = ethernet.ipv4_addresses.add()
@@ -241,7 +240,7 @@ def __vlan_intf_config(config, port_config_list, duthost, snappi_ports):
 
             ethernet = device.ethernets.add()
             ethernet.name = 'Ethernet Port {}'.format(port_id)
-            ethernet.port_name = config.ports[port_id].name
+            ethernet.connection.port_name = config.ports[port_id].name
             ethernet.mac = mac
 
             ip_stack = ethernet.ipv4_addresses.add()
@@ -341,7 +340,7 @@ def __portchannel_intf_config(config, port_config_list, duthost, snappi_ports):
         device = config.devices.device(name='Device {}'.format(pc))[-1]
 
         ethernet = device.ethernets.add()
-        ethernet.port_name = lag.name
+        ethernet.connection.port_name = lag.name
         ethernet.name = 'Ethernet {}'.format(pc)
         ethernet.mac = __gen_pc_mac(pc_id)
 
@@ -543,15 +542,6 @@ def tgen_ports(duthost, conn_graph_facts, fanout_graph_facts):      # noqa: F811
         logger.info(snappi_ports)
 
     return snappi_ports
-
-
-@pytest.fixture(scope='module')
-def cvg_api(snappi_api_serv_ip,
-            snappi_api_serv_port):
-    api = snappi_convergence.api(location=snappi_api_serv_ip + ':' + str(snappi_api_serv_port), ext='ixnetwork')
-    yield api
-    if getattr(api, 'assistant', None) is not None:
-        api.assistant.Session.remove()
 
 
 def snappi_multi_base_config(duthost_list,
@@ -807,7 +797,7 @@ def __intf_config(config, port_config_list, duthost, snappi_ports):
 
             ethernet = device.ethernets.add()
             ethernet.name = 'Ethernet Port {}'.format(port_id)
-            ethernet.port_name = config.ports[port_id].name
+            ethernet.connection.port_name = config.ports[port_id].name
             ethernet.mac = mac
 
             ip_stack = ethernet.ipv4_addresses.add()
@@ -884,7 +874,7 @@ def __intf_config_multidut(config, port_config_list, duthost, snappi_ports, setu
         device = config.devices.device(name='Device Port {}'.format(port_id))[-1]
         ethernet = device.ethernets.add()
         ethernet.name = 'Ethernet Port {}'.format(port_id)
-        ethernet.port_name = config.ports[port_id].name
+        ethernet.connection.port_name = config.ports[port_id].name
         ethernet.mac = mac
         ip_stack = ethernet.ipv4_addresses.add()
         ip_stack.name = 'Ipv4 Port {}'.format(port_id)

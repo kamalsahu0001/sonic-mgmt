@@ -1,19 +1,18 @@
 [sonic_dell64_40]
-sonic-s6100-dut1     ansible_host=10.36.78.81  os=sonic
-sonic-s6100-dut2     ansible_host=10.36.78.81  os=sonic
+sonic-s6100-dut1     ansible_host=10.36.78.28  os=sonic
 
 [sonic_dell64_40:vars]
-hwsku="Force10-S6100"
-iface_speed='40000'
+hwsku="Accton-AS9716-32D"
+iface_speed='400000'
 
 [Server_6]
-snappi-sonic          ansible_host=10.36.79.8   os=snappi
+snappi-sonic          ansible_host=10.36.79.8   os=ixia
 
 [sonic:children]
 sonic_dell64_40
 
 [sonic:vars]
-mgmt_subnet_mask_length='23'
+mgmt_subnet_mask_length='22'
 
 [snappi-sonic:children]
 sonic

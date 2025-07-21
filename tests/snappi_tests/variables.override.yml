@@ -1,27 +1,16 @@
 vms-snappi-sonic-multidut:
   multidut_port_info:
-    - multi-dut-single-asic:
-        rx_ports:
-          - hostname: sonic-s6100-dut1
-            port_name: Ethernet72
-          - host_name: sonic-s6100-dut2
-            port_name: Ethernet76
-        tx_ports:
-          - hostname: sonic-s6100-dut2
-            port_name: Ethernet64
-          - hostname: sonic-s6100-dut2
-            port_name: Ethernet68
     - single-dut-single-asic:
         rx_ports:
           - hostname: sonic-s6100-dut1
-            port_name: Ethernet72
+            port_name: Ethernet16
           - hostname: sonic-s6100-dut1
-            port_name: Ethernet76
+            port_name: Ethernet24
         tx_ports:
           - hostname: sonic-s6100-dut1
-            port_name: Ethernet64
+            port_name: Ethernet0
           - hostname: sonic-s6100-dut1
-            port_name: Ethernet68
+            port_name: Ethernet8
   mixed_speed_port_info:
     vms-snappi-sonic-multidut:
       - multidut-any-asic:
@@ -31,4 +20,4 @@ vms-snappi-sonic-multidut:
         tx_ports:
           - hostname: sonic-s6100-dut2
             port_name: Ethernet0
-  pfcQueueGroupSize: 8
+  pfcQueueGroupSize: 4

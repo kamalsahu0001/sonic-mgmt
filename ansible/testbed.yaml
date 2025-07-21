@@ -216,7 +216,7 @@
 
 - conf-name: vms-snappi-sonic
   group-name: vms6-1
-  topo: ptf64
+  topo: ptf32
   ptf_image_name: docker-ptf-snappi
   ptf: snappi-sonic-ptf
   ptf_ip: 10.36.79.8

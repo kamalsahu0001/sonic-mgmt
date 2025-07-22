@@ -7,7 +7,7 @@ from tests.common.snappi_tests.snappi_fixtures import snappi_api_serv_ip, snappi
     snappi_testbed_config, get_snappi_ports_single_dut, snappi_port_selection, tgen_port_info, \
     get_snappi_ports, is_snappi_multidut                                        # noqa: F401
 from tests.snappi_tests.files.helper import reboot_duts, \
-    reboot_duts_and_disable_wd                                              # noqa: F401
+    setup_ports_and_dut, multidut_port_info, reboot_duts_and_disable_wd                                              # noqa: F401
 from tests.common.snappi_tests.qos_fixtures import prio_dscp_map, all_prio_list, lossless_prio_list,\
     lossy_prio_list, disable_pfcwd          # noqa: F401
 from tests.snappi_tests.pfc.files.helper import run_pfc_test

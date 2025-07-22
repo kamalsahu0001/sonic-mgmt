@@ -538,7 +538,7 @@ def enable_ecn(host_ans, prio, asic_value=None):
     if asic_value is None:
         host_ans.shell('sudo ecnconfig -q {} on'.format(prio))
         results = host_ans.shell('sudo ecnconfig -q {} on'.format(prio))
-        if re.search("sudo ecnconfig -q {}: on".format(prio), results['cmd']):
+        if re.search("sudo ecnconfig -q {} : on".format(prio), results['cmd']):
             return True
     else:
         host_ans.shell('sudo ecnconfig -n {} -q {} on'.format(asic_value, prio))

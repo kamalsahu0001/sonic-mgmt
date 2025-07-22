@@ -1,4 +1,4 @@
-vms-snappi-sonic-multidut:
+vms-snappi-sonic:
   multidut_port_info:
     - single-dut-single-asic:
         rx_ports:

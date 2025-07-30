@@ -1,0 +1,388 @@
+{
+    "vms-snappi-sonic": {
+        "sonic-s6100-dut1": {
+            "intf_status": {
+                "Ethernet0": {
+                    "name": "Ethernet0",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE1",
+                    "vlan": "routed",
+                    "oper_state": "up",
+                    "admin_state": "up",
+                    "type": "False up QSFP-DD Double Density 8X Pluggable Transceiver"
+                },
+                "Ethernet8": {
+                    "name": "Ethernet8",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE2",
+                    "vlan": "routed",
+                    "oper_state": "up",
+                    "admin_state": "up",
+                    "type": "False up QSFP-DD Double Density 8X Pluggable Transceiver"
+                },
+                "Ethernet16": {
+                    "name": "Ethernet16",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE3",
+                    "vlan": "routed",
+                    "oper_state": "up",
+                    "admin_state": "up",
+                    "type": "False up N/A"
+                },
+                "Ethernet24": {
+                    "name": "Ethernet24",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE4",
+                    "vlan": "routed",
+                    "oper_state": "up",
+                    "admin_state": "up",
+                    "type": "False up QSFP-DD Double Density 8X Pluggable Transceiver"
+                },
+                "Ethernet32": {
+                    "name": "Ethernet32",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE5",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A QSFP-DD Double Density 8X Pluggable Transceiver"
+                },
+                "Ethernet40": {
+                    "name": "Ethernet40",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE6",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet48": {
+                    "name": "Ethernet48",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE7",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet56": {
+                    "name": "Ethernet56",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE8",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet64": {
+                    "name": "Ethernet64",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE9",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet72": {
+                    "name": "Ethernet72",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE10",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet80": {
+                    "name": "Ethernet80",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE11",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet88": {
+                    "name": "Ethernet88",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE12",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet96": {
+                    "name": "Ethernet96",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE13",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet104": {
+                    "name": "Ethernet104",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE14",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet112": {
+                    "name": "Ethernet112",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE15",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet120": {
+                    "name": "Ethernet120",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE16",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet128": {
+                    "name": "Ethernet128",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE17",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet136": {
+                    "name": "Ethernet136",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE18",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet144": {
+                    "name": "Ethernet144",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE19",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet152": {
+                    "name": "Ethernet152",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE20",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet160": {
+                    "name": "Ethernet160",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE21",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet168": {
+                    "name": "Ethernet168",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE22",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet176": {
+                    "name": "Ethernet176",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE23",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet184": {
+                    "name": "Ethernet184",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE24",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet192": {
+                    "name": "Ethernet192",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE25",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet200": {
+                    "name": "Ethernet200",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE26",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet208": {
+                    "name": "Ethernet208",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE27",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet216": {
+                    "name": "Ethernet216",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE28",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet224": {
+                    "name": "Ethernet224",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE29",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet232": {
+                    "name": "Ethernet232",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE30",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet240": {
+                    "name": "Ethernet240",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE31",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                },
+                "Ethernet248": {
+                    "name": "Ethernet248",
+                    "speed": "400G",
+                    "fec": "rs",
+                    "alias": "fourHundredGigE32",
+                    "vlan": "routed",
+                    "oper_state": "down",
+                    "admin_state": "down",
+                    "type": "False N/A N/A"
+                }
+            },
+            "features": {
+                "bgp": "enabled",
+                "database": "always_enabled",
+                "dhcp_relay": "disabled",
+                "eventd": "enabled",
+                "gnmi": "enabled",
+                "iccpd": "enabled",
+                "lldp": "enabled",
+                "macsec": "disabled",
+                "mgmt-framework": "enabled",
+                "mux": "always_disabled",
+                "nat": "disabled",
+                "pmon": "enabled",
+                "radv": "enabled",
+                "sflow": "disabled",
+                "snmp": "enabled",
+                "stp": "enabled",
+                "swss": "enabled",
+                "syncd": "enabled",
+                "teamd": "enabled",
+                "telemetry": "enabled"
+            },
+            "asic_services": {},
+            "asic_type": "broadcom",
+            "asic_to_interface": {
+                "null": [
+                    "Ethernet0",
+                    "Ethernet8",
+                    "Ethernet16",
+                    "Ethernet24",
+                    "Ethernet32",
+                    "Ethernet40",
+                    "Ethernet48",
+                    "Ethernet56",
+                    "Ethernet64",
+                    "Ethernet72",
+                    "Ethernet80",
+                    "Ethernet88",
+                    "Ethernet96",
+                    "Ethernet104",
+                    "Ethernet112",
+                    "Ethernet120",
+                    "Ethernet128",
+                    "Ethernet136",
+                    "Ethernet144",
+                    "Ethernet152",
+                    "Ethernet160",
+                    "Ethernet168",
+                    "Ethernet176",
+                    "Ethernet184",
+                    "Ethernet192",
+                    "Ethernet200",
+                    "Ethernet208",
+                    "Ethernet216",
+                    "Ethernet224",
+                    "Ethernet232",
+                    "Ethernet240",
+                    "Ethernet248"
+                ]
+            }
+        }
+    }
+}

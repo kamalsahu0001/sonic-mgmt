@@ -40,7 +40,7 @@ The IxNetwork API Server docker is installed in the Testbed server along with so
 ## Deploy IxNetwork API Server
 
 ### Download IxNetwork API Server docker image
-1. Download IxNetwork Web Edition (Docker deployment) from [ here ](https://downloads.ixiacom.com/support/downloads_and_updates/public/ixnetwork/9.30/Ixia_IxNetworkWeb_Docker_9.30.2212.22.tar.bz2)
+1. Download IxNetwork Web Edition (Docker deployment) from [ here](https://downloads.ixiacom.com/support/downloads_and_updates/public/IxNetwork/10.25/10.25.2405.106/Ixia_IxNetworkWeb_Docker_10.25.2405.106.tar.bz2)
 
 2. Copy the tar.bz2 file on the testbed server.
 
@@ -61,43 +61,29 @@ docker load -i Ixia_IxNetworkWeb_Docker_<version>.tar
 ```
 2. Loaded image : `ixnetworkweb_<version>_image`
 
-3. Create the macvlan bridge to be used by IxNetwork Web Edition:
+3. Create docker bridge network:
 ```
-docker network create -d macvlan -o parent=ens160 --subnet=192.168.x.0/24 --gateway=192.168.x.254 <bridge_name>
-(NOTE: Use your subnet, prefix length and gateway IP address.)
+docker network create \
+  --driver bridge \
+  --subnet 172.28.0.0/16 \
+  sonic_ixnet_net
+
 ```
 
-4. Verify bridge got created properly:
+4. Assign sonic-mgmt container with static ip from same subnet as above:
 ```
-docker network ls
-docker network inspect IxNetVlanMac
+sudo docker run -itd --name sonic_network_test --net sonic_ixnet_net --ip 172.28.0.10 --privileged -v /home/ubuntu/sonic_network_test/sonic-mgmt:/var/azureuser/sonic-mgmt --user azureuser:gazureuser sonicdev-microsoft.azurecr.io:443/docker-sonic-mgmt:latest
 ```
-5. Deploy the IxNetwork Web Edition container using the following command ixnetworkweb_\<version>_image  should be as shown in step 2 above):
+5. Assign IxNetwork container with static ip from same subnet as above. (Note: redirect port 443 to  8001 or any other port number to access it with host ip followed by port number like https://10.0.0.254:8001/. If user wants to deploy multiple IxNetwork docker instances on the testbed server, then user has to use different port numbers mapped to port 443, so that each instance can be accessed using the configured port number. If only one IxNetwork instance needs to be installed on the server, then no need to redirect port 443:
 ```
-docker run --net <bridge_name> \
---ip <container ip> \
---hostname <hostname> \
---name <container name> \
---privileged \
---restart=always \
---cap-add=SYS_ADMIN \
---cap-add=SYS_TIME \
---cap-add=NET_ADMIN \
---cap-add=SYS_PTRACE \
--i -d \
--v /sys/fs/cgroup:/sys/fs/cgroup \
--v /var/crash/=/var/crash \
--v /opt/container/one/configs:/root/.local/share/Ixia/sdmStreamManager/common \
--v /opt/container/one/results:/root/.local/share/Ixia/IxNetwork/data/result \
--v /opt/container/one/settings:/root/.local/share/IXIA/IxNetwork.Globals \
---tmpfs /run \
-ixnetworkweb_<version>_image
+sudo docker run -d --net sonic_ixnet_net --name apiserver --ip 172.28.0.11 -p 8001:443 --privileged --restart=always --cap-add=SYS_ADMIN --cap-add=SYS_TIME --cap-add=NET_ADMIN --cap-add=SYS_PTRACE -i -d -v /sys/fs/cgroup:/sys/fs/cgroup -v /var/crash/=/var/crash -v /opt/container/one/configs:/root/.local/share/Ixia/sdmStreamManager/common -v /opt/container/one/results:/root/.local/share/Ixia/IxNetwork/data/result -v /opt/container/one/settings:/root/.local/share/IXIA/IxNetwork.Globals --tmpfs /run ixnetworkweb_10.25.2405.106_image:latest
+
 
 Note : The folders within /opt/container/one/ should to be created with read and write permission prior docker run.
 
 ```
 
-6. Launch IxNetworkWeb using browser `https://container ip`
+6. Launch IxNetworkWeb using browser `https://container ip:port number`
 
 
 ## Deploy IxLoad API Server

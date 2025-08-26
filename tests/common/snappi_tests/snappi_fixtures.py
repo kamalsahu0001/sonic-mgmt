@@ -71,7 +71,7 @@ def snappi_api(snappi_api_serv_ip,
     # api._username = "<please mention the username if other than default username>"
     # api._password = "<please mention the password if other than default password>"
     api._username = "admin"
-    api._password = "wrinkle#B52#B52"   
+    api._password = "admin"   
     yield api
 
     if getattr(api, 'assistant', None) is not None:

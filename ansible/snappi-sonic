@@ -1,12 +1,12 @@
 [sonic_dell64_40]
-sonic-s6100-dut1     ansible_host=10.36.78.28  os=sonic
+sonic-s6100-dut1     ansible_host=10.36.78.152  os=sonic
 
 [sonic_dell64_40:vars]
 hwsku="Accton-AS9716-32D"
 iface_speed='400000'
 
 [Server_6]
-snappi-sonic          ansible_host=10.36.79.8   os=ixia
+snappi-sonic          ansible_host=10.36.78.42   os=ixia
 
 [sonic:children]
 sonic_dell64_40
@@ -19,4 +19,4 @@ sonic
 snappi_chassis
 
 [ptf]
-snappi-sonic-ptf     ansible_host='10.36.79.8'
+snappi-sonic-ptf     ansible_host='10.36.78.42'

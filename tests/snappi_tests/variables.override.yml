@@ -3,14 +3,14 @@ vms-snappi-sonic:
     - single-dut-single-asic:
         rx_ports:
           - hostname: sonic-s6100-dut1
-            port_name: Ethernet16
+            port_name: Ethernet8
           - hostname: sonic-s6100-dut1
-            port_name: Ethernet24
+            port_name: Ethernet12
         tx_ports:
           - hostname: sonic-s6100-dut1
             port_name: Ethernet0
           - hostname: sonic-s6100-dut1
-            port_name: Ethernet8
+            port_name: Ethernet4
   mixed_speed_port_info:
     vms-snappi-sonic-multidut:
       - multidut-any-asic:

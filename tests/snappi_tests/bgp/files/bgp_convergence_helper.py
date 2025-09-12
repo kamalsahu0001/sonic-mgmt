@@ -314,7 +314,7 @@ def __tgen_bgp_config(snappi_api,
     layer1.name = 'port settings'
     layer1.port_names = [port.name for port in config.ports]
     layer1.ieee_media_defaults = False
-    layer1.auto_negotiation.rs_fec = False
+    layer1.auto_negotiation.rs_fec = True
     layer1.auto_negotiation.link_training = False
     layer1.speed = temp_tg_port[0]['speed']
     layer1.auto_negotiate = False
@@ -780,7 +780,7 @@ def get_RIB_IN_capacity(snappi_api,
         layer1.name = 'port settings'
         layer1.port_names = [port.name for port in config.ports]
         layer1.ieee_media_defaults = False
-        layer1.auto_negotiation.rs_fec = False
+        layer1.auto_negotiation.rs_fec = True
         layer1.auto_negotiation.link_training = False
         layer1.speed = temp_tg_port[0]['speed']
         layer1.auto_negotiate = False

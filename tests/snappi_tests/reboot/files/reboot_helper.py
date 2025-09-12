@@ -245,7 +245,7 @@ def __tgen_bgp_config(snappi_api, ):
     layer1.name = 'port settings'
     layer1.port_names = [port.name for port in config.ports]
     layer1.ieee_media_defaults = False
-    layer1.auto_negotiation.rs_fec = False
+    layer1.auto_negotiation.rs_fec = True
     layer1.auto_negotiation.link_training = False
     layer1.speed = temp_tg_port[1]['speed']
     layer1.auto_negotiate = False
@@ -603,3 +603,4 @@ def get_convergence_for_reboot_test(duthost,
     columns = ['Reboot Type', 'Traffic Item Name',
                'Data Plane Convergence Time (ms)', 'Time (ms)']
     logger.info("\n%s" % tabulate(table, headers=columns, tablefmt="psql"))
+

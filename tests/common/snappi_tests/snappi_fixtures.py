@@ -424,7 +424,7 @@ def snappi_testbed_config(conn_graph_facts, fanout_graph_facts,     # noqa: F811
     l1_config.speed = 'speed_{}_gbps'.format(speed_gbps)
     l1_config.ieee_media_defaults = False
     l1_config.auto_negotiate = False
-    l1_config.auto_negotiation.link_training = True
+    l1_config.auto_negotiation.link_training = False
     l1_config.auto_negotiation.rs_fec = True
 
     pfc = l1_config.flow_control.ieee_802_1qbb
@@ -674,7 +674,7 @@ def snappi_dut_base_config(duthost_list,
     if is_snappi_multidut(duthost_list):
         l1_config.auto_negotiation.link_training = False
     else:
-        l1_config.auto_negotiation.link_training = True
+        l1_config.auto_negotiation.link_training = False
     l1_config.auto_negotiation.rs_fec = True
 
     pfc = l1_config.flow_control.ieee_802_1qbb

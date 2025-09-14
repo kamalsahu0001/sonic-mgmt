@@ -4,20 +4,8 @@ from ipaddress import ip_address, IPv4Address, IPv6Address
 
 # NOTE: Ensure the ports are mapped correctly to the respective duts in ansible/files/*links.csv
 # NOTE: The MULTIDUT_TESTBED must match with the conf-name defined in testbed.yml/testbed.csv file
-MULTIDUT_TESTBED = 'vms-snappi-sonic-multidut'
+MULTIDUT_TESTBED = 'vms-snappi-sonic'
 MULTIDUT_PORT_INFO = {MULTIDUT_TESTBED: (
-    ({
-        'multi-dut-single-asic': {
-            'rx_ports': [
-                {'port_name': 'Ethernet72', 'hostname': "sonic-s6100-dut1"},
-                {'port_name': 'Ethernet76', 'hostname': "sonic-s6100-dut1"}
-            ],
-            'tx_ports': [
-                {'port_name': 'Ethernet64', 'hostname': "sonic-s6100-dut2"},
-                {'port_name': 'Ethernet68', 'hostname': "sonic-s6100-dut2"}
-            ]
-        }
-    }),
     ({
         'single-dut-single-asic': {
             'rx_ports': [
@@ -29,7 +17,7 @@ MULTIDUT_PORT_INFO = {MULTIDUT_TESTBED: (
                 {'port_name': 'Ethernet68', 'hostname': "sonic-s6100-dut1"}
             ]
         }
-    })
+    }),
 )}
 # rx port is 400Gbps port receiving traffic in mixed-speed mode.
 # tx port is 100Gbps port sending traffic to IXIA.
@@ -61,7 +49,7 @@ in the snappi_sonic_devices.csv and asic values based on if its a chassis based 
                                   and 1 port from hostname2
     non_chassis_single_line_card : this option selects all the ports from the hostname
 '''
-line_card_choice = 'chassis_multi_line_card_multi_asic'
+line_card_choice = 'non_chassis_single_line_card'
 config_set = {
                 "chassis_single_line_card_single_asic": {
                     'hostname': ["sonic-s6100-dut1"],

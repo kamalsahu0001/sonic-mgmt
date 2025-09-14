@@ -409,7 +409,7 @@ def wait_for_bgp_and_lb_soft(snappi_api, ping_req, ):
     found_lb_state = False
     while True:
         responses = ping_loopback_if(snappi_api, ping_req)
-        if not found_lb_state and not responses[-1].result in "success":
+        if not found_lb_state and not responses[-1].result in "succeeded":
             loopback_down_start_timer = time.time()
             found_lb_state = True
             logger.info('!!!!!!! 1. loopback timer started {} !!!!!!'.format(
@@ -421,7 +421,7 @@ def wait_for_bgp_and_lb_soft(snappi_api, ping_req, ):
     found_lb_state = False
     while True:
         responses = ping_loopback_if(snappi_api, ping_req)
-        if not found_lb_state and responses[-1].result in "success":
+        if not found_lb_state and responses[-1].result in "succeeded":
             loopback_up_start_timer = time.time()
             # found_lb_state = True
             logger.info('\n Ping Successfull \n!!!!!!! 2. loopback up end time {} !!!!!!'.format(
@@ -457,13 +457,13 @@ def wait_for_bgp_and_lb(snappi_api, ping_req, ):
             found_bgp_state = True
             logger.info('!!! 1. bgp is down time started {} !!!'.format(
                 bgp_down_start_timer))
-        if not found_lb_state and not responses[-1].result in "success":
+        if not found_lb_state and not responses[-1].result in "succeeded":
             loopback_down_start_timer = time.time()
             found_lb_state = True
             logger.info('!!! 1. loopback timer started {} !!!'.format(
                 loopback_down_start_timer))
         if bgpv4_metrics[-1].session_state in "down" and not \
-                responses[-1].result in "success" and found_bgp_state and \
+                responses[-1].result in "succeeded" and found_bgp_state and \
                 found_lb_state:
             logger.info('BGP Control And LoopBack I/F Down')
             break
@@ -481,14 +481,14 @@ def wait_for_bgp_and_lb(snappi_api, ping_req, ):
             logger.info(' ')
             logger.info('^^ 2. bgp is up end time {} ^^^'.format(
                 bgp_up_start_timer))
-        if not found_lb_state and responses[-1].result in "success":
+        if not found_lb_state and responses[-1].result in "succeeded":
             loopback_up_start_timer = time.time()
             found_lb_state = True
             logger.info(' ')
             logger.info('2. loopback up end time {} !!!'.format(
                 loopback_up_start_timer))
         if bgpv4_metrics[-1].session_state in "up" and responses[-1].result \
-                in "success" and found_bgp_state and found_lb_state:
+                in "succeeded" and found_bgp_state and found_lb_state:
             logger.info('BGP Control And LoopBack I/F Up')
             break
 
@@ -603,4 +603,5 @@ def get_convergence_for_reboot_test(duthost,
     columns = ['Reboot Type', 'Traffic Item Name',
                'Data Plane Convergence Time (ms)', 'Time (ms)']
     logger.info("\n%s" % tabulate(table, headers=columns, tablefmt="psql"))
+
 

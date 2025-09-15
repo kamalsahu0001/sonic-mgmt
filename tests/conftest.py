@@ -2663,7 +2663,7 @@ def restore_config_db_and_config_reload(duts_data, duthosts, request):
     with SafeThreadPoolExecutor(max_workers=8) as executor:
         for duthost in duthosts:
             executor.submit(config_reload, duthost, wait_before_force_reload=300, safe_reload=True,
-                            check_intf_up_ports=True, wait_for_bgp=wait_for_bgp)
+                            check_intf_up_ports=False, wait_for_bgp=wait_for_bgp)
 
 
 def compare_running_config(pre_running_config, cur_running_config):

@@ -245,7 +245,7 @@ def __tgen_bgp_config(snappi_api, ):
     layer1.name = 'port settings'
     layer1.port_names = [port.name for port in config.ports]
     layer1.ieee_media_defaults = False
-    layer1.auto_negotiation.rs_fec = True
+    layer1.auto_negotiation.rs_fec = False
     layer1.auto_negotiation.link_training = False
     layer1.speed = temp_tg_port[1]['speed']
     layer1.auto_negotiate = False
@@ -254,12 +254,13 @@ def __tgen_bgp_config(snappi_api, ):
     num_of_devices = 1000
     conf_values['server_1_ipv4'] = get_ip_addresses("192.168.1.2", 2000)[::2]
     conf_values['server_2_ipv4'] = get_ip_addresses("192.168.1.2", 2000)[1::2]
-    conf_values['server_1_ipv6'] = get_ip_addresses("5000::2", 2000,
+    conf_values['server_1_ipv6'] = get_ip_addresses("5001::2", 2000,
                                                     'ipv6')[::2]
-    conf_values['server_2_ipv6'] = get_ip_addresses("5000::2", 2000,
+    conf_values['server_2_ipv6'] = get_ip_addresses("5001::2", 2000,
                                                     'ipv6')[1::2]
     conf_values['server_1_mac'] = get_macs("001700000011", num_of_devices)
     conf_values['server_2_mac'] = get_macs("001600000011", num_of_devices)
+
     for i in range(1, num_of_devices + 1):
         # server1
         d1 = config.devices.device(name='Server_1_{}'.format(i - 1))[-1]
@@ -276,7 +277,7 @@ def __tgen_bgp_config(snappi_api, ):
         ipv6_1.name = 'IPv6 1_{}'.format(i - 1)
         ipv6_1.address = conf_values['server_1_ipv6'][i - 1]
         ipv6_1.gateway = '5001::1'
-        ipv6_1.prefix = 128
+        ipv6_1.prefix = 64
         # server2
         d2 = config.devices.device(name='Server_2_{}'.format(i - 1))[-1]
         eth_2 = d2.ethernets.add()
@@ -292,7 +293,7 @@ def __tgen_bgp_config(snappi_api, ):
         ipv6_2.name = 'IPv6 2_{}'.format(i - 1)
         ipv6_2.address = conf_values['server_2_ipv6'][i - 1]
         ipv6_2.gateway = '5001::1'
-        ipv6_2.prefix = 128
+        ipv6_2.prefix = 64
 
     # T1
     d3 = config.devices.device(name="T1")[-1]
@@ -309,7 +310,7 @@ def __tgen_bgp_config(snappi_api, ):
     ipv6_3.name = 'IPv6 3'
     ipv6_3.address = temp_tg_port[1]['ipv6']
     ipv6_3.gateway = temp_tg_port[1]['peer_ipv6']
-    ipv6_3.prefix = 128
+    ipv6_3.prefix = 64
 
     bgpv4_stack = d3.bgp
     bgpv4_stack.router_id = temp_tg_port[1]['peer_ip']
@@ -409,7 +410,7 @@ def wait_for_bgp_and_lb_soft(snappi_api, ping_req, ):
     found_lb_state = False
     while True:
         responses = ping_loopback_if(snappi_api, ping_req)
-        if not found_lb_state and not responses[-1].result in "succeeded":
+        if not found_lb_state and not responses[-1].result == "succeeded":
             loopback_down_start_timer = time.time()
             found_lb_state = True
             logger.info('!!!!!!! 1. loopback timer started {} !!!!!!'.format(
@@ -421,7 +422,7 @@ def wait_for_bgp_and_lb_soft(snappi_api, ping_req, ):
     found_lb_state = False
     while True:
         responses = ping_loopback_if(snappi_api, ping_req)
-        if not found_lb_state and responses[-1].result in "succeeded":
+        if not found_lb_state and responses[-1].result == "succeeded":
             loopback_up_start_timer = time.time()
             # found_lb_state = True
             logger.info('\n Ping Successfull \n!!!!!!! 2. loopback up end time {} !!!!!!'.format(
@@ -457,13 +458,13 @@ def wait_for_bgp_and_lb(snappi_api, ping_req, ):
             found_bgp_state = True
             logger.info('!!! 1. bgp is down time started {} !!!'.format(
                 bgp_down_start_timer))
-        if not found_lb_state and not responses[-1].result in "succeeded":
+        if not found_lb_state and not responses[-1].result == "succeeded":
             loopback_down_start_timer = time.time()
             found_lb_state = True
             logger.info('!!! 1. loopback timer started {} !!!'.format(
                 loopback_down_start_timer))
         if bgpv4_metrics[-1].session_state in "down" and not \
-                responses[-1].result in "succeeded" and found_bgp_state and \
+                responses[-1].result == "succeeded" and found_bgp_state and \
                 found_lb_state:
             logger.info('BGP Control And LoopBack I/F Down')
             break
@@ -481,14 +482,14 @@ def wait_for_bgp_and_lb(snappi_api, ping_req, ):
             logger.info(' ')
             logger.info('^^ 2. bgp is up end time {} ^^^'.format(
                 bgp_up_start_timer))
-        if not found_lb_state and responses[-1].result in "succeeded":
+        if not found_lb_state and responses[-1].result == "succeeded":
             loopback_up_start_timer = time.time()
             found_lb_state = True
             logger.info(' ')
             logger.info('2. loopback up end time {} !!!'.format(
                 loopback_up_start_timer))
-        if bgpv4_metrics[-1].session_state in "up" and responses[-1].result \
-                in "succeeded" and found_bgp_state and found_lb_state:
+        if bgpv4_metrics[-1].session_state in "up" and responses[-1].result == "succeeded" \
+                and found_bgp_state and found_lb_state:
             logger.info('BGP Control And LoopBack I/F Up')
             break
 
@@ -580,7 +581,7 @@ def get_convergence_for_reboot_test(duthost,
                             '{}'.format(i, 0))
         else:
             request.flow.flow_names = [i]
-            flow = snappi_api.get_metrics(request).flow_metric
+            flow = snappi_api.get_metrics(request).flow_metrics
             assert int(flow[0].frames_tx_rate) != 0, \
                 "No Frames sent for traffic item: {}".format(i)
             assert flow[0].frames_tx_rate == flow[0].frames_tx_rate, \
@@ -603,5 +604,3 @@ def get_convergence_for_reboot_test(duthost,
     columns = ['Reboot Type', 'Traffic Item Name',
                'Data Plane Convergence Time (ms)', 'Time (ms)']
     logger.info("\n%s" % tabulate(table, headers=columns, tablefmt="psql"))
-
-

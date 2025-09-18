@@ -337,7 +337,7 @@ def __tgen_bgp_config(snappi_api, ):
     bgpv6_peer.as_type = BGP_TYPE
     bgpv6_peer.peer_address = temp_tg_port[1]['peer_ipv6']
     bgpv6_peer.as_number = int(TGEN_AS_NUM)
-    route_range2 = bgpv4_peer.v6_routes.add(name="Network Group 2")
+    route_range2 = bgpv6_peer.v6_routes.add(name="Network Group 2")
     route_range2.addresses.add(address='3000::1', prefix=128, count=3000)
     as_path = route_range2.as_path
     as_path_segment = as_path.segments.add()
@@ -604,3 +604,4 @@ def get_convergence_for_reboot_test(duthost,
     columns = ['Reboot Type', 'Traffic Item Name',
                'Data Plane Convergence Time (ms)', 'Time (ms)']
     logger.info("\n%s" % tabulate(table, headers=columns, tablefmt="psql"))
+

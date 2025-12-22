@@ -791,7 +791,7 @@ def snappi_dut_base_config(duthost_list,
     if is_snappi_multidut(duthost_list):
         l1_config.auto_negotiation.link_training = False
     else:
-        l1_config.auto_negotiation.link_training = True
+        l1_config.auto_negotiation.link_training = False
     l1_config.auto_negotiation.rs_fec = True
 
     pfc = l1_config.flow_control.ieee_802_1qbb

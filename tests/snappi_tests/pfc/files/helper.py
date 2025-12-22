@@ -250,6 +250,8 @@ def run_pfc_test(api,
         time.sleep(1)
         dut.command("sonic-clear counters")
         time.sleep(1)
+        dut.command("pfcwd stop")
+        time.sleep(1)
 
     """ Run traffic """
     tgen_flow_stats, switch_flow_stats, in_flight_flow_metrics = run_traffic(duthost=duthost,

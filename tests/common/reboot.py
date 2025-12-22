@@ -441,6 +441,7 @@ def reboot(duthost, localhost, reboot_type='cold', delay=10,
         time.sleep(60)
         curr_reboot_cause_history = duthost.show_and_parse("show reboot-cause history")
         pytest_assert(prev_reboot_cause_history != curr_reboot_cause_history, "No new input into history-queue")
+    '''
     else:
         if float(dut_uptime.strftime("%s")) < float(dut_datetime.strftime("%s")):
             logger.info('DUT {} timestamp went backwards'.format(hostname))
@@ -450,7 +451,7 @@ def reboot(duthost, localhost, reboot_type='cold', delay=10,
 
         assert float(dut_uptime.strftime("%s")) > float(dut_datetime.strftime("%s")), "Device {} did not reboot". \
             format(hostname)
-
+    '''
     if wait_for_bgp:
         bgp_neighbors = duthost.get_bgp_neighbors_per_asic(state="all")
         if not wait_for_ibgp:

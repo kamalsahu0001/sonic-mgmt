@@ -15,7 +15,7 @@ from tests.snappi_tests.ecn.files.helper import run_ecn_marking_test, \
 from tests.common.snappi_tests.snappi_test_params import SnappiTestParams
 from tests.common.cisco_data import is_cisco_device
 logger = logging.getLogger(__name__)
-pytestmark = [pytest.mark.topology('multidut-tgen', 'tgen')]
+pytestmark = [pytest.mark.topology('multidut-tgen')]
 
 
 def snappi_port_dut_info(snappi_ports):

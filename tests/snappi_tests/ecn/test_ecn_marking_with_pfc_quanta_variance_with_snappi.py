@@ -14,7 +14,7 @@ from tests.snappi_tests.files.helper import multidut_port_info, setup_ports_and_
 from tests.snappi_tests.ecn.files.helper import run_ecn_marking_with_pfc_quanta_variance
 from tests.common.snappi_tests.snappi_test_params import SnappiTestParams
 logger = logging.getLogger(__name__)
-pytestmark = [pytest.mark.topology('multidut-tgen', 'tgen')]
+pytestmark = [pytest.mark.topology('multidut-tgen')]
 
 
 @pytest.fixture(autouse=True)
